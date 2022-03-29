@@ -15,4 +15,11 @@ public class building : MonoBehaviour
     {
         transform.Translate(Vector2.left * Time.deltaTime);
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.GetComponent<helicopterController>() != null)
+        {
+            //score++;
+        }   
+    }
 }
