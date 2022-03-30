@@ -32,6 +32,7 @@ public class helicopterController : MonoBehaviour
                 {
                     print("iau degetu");contor--;
                     //rigidBody.AddForce(new Vector2(0, -5));
+                    rigidBody.velocity = new Vector2(0,rigidBody.velocity.y/1.8f);
                     rigidBody.AddForce(new Vector2(0, -((contor*force)/10)));contor = 0;
                 }
             }

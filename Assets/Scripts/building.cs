@@ -13,9 +13,17 @@ public class building : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector2(-2,0)* Time.deltaTime);
+        transform.Translate(new Vector2(-2.5f,0)* Time.deltaTime);
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        print("muie");
+        if (collision.collider.tag == "Destroyer")
+        {
+            print("distruge");
+            Destroy(collision.gameObject);
+        }
     }
 
-    
 
 }
