@@ -41,7 +41,7 @@ public class helicopterController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "Score")
+        if (collision.tag != "Score" && collision.tag !="Destroyer")
         {
             rigidBody.velocity = Vector2.zero;
             isDead = true;

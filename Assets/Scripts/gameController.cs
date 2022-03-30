@@ -6,13 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class gameController : MonoBehaviour
 {
-
+    public building cladire;
     public static gameController instance;          
     public Text scoreText;                        
-    public GameObject gameOvertext;                
+    public GameObject gameOvertext;
 
+    private float nextSpawnTime;
     private int score = 0;                        
     public bool gameOver = false;
+    public float offset = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,11 +26,18 @@ public class gameController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
+        nextSpawnTime = Time.time + offset;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Time.time > nextSpawnTime)
+        {
+            Instantiate(cladire, cladire.transform.position, Quaternion.identity);
+            nextSpawnTime += offset;
+        }
         if (gameOver && Input.touchCount>0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
