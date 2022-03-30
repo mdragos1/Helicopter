@@ -7,7 +7,7 @@ public class building : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector2(1.4f, -5.79f);
+       // transform.position = new Vector2(1.4f, -5.79f);
     }
 
     // Update is called once per frame
@@ -15,11 +15,5 @@ public class building : MonoBehaviour
     {
         transform.Translate(Vector2.left * Time.deltaTime);
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.GetComponent<helicopterController>() != null)
-        {
-            //score++;
-        }   
-    }
+    
 }
